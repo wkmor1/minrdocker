@@ -38,7 +38,7 @@ RUN    echo "deb http://ppa.launchpad.net/marutter/rrutter/ubuntu trusty main" >
     && R -e 'install.packages(c("rJava", "readxl", "dplyr", "tidyr", "lubridate", "purrr", "magrittr", "jagsUI"))'
 
 # Install inconsolata font
-RUN    curl -O http://mirrors.ibiblio.org/pub/mirrors/CTAN/install/fonts/inconsolata.tds.zip \
+RUN    curl -OL http://mirrors.ibiblio.org/pub/mirrors/CTAN/install/fonts/inconsolata.tds.zip \
     && unzip inconsolata.tds.zip -d /usr/share/texlive/texmf-dist \
     && echo "Map zi4.map" >> /usr/share/texlive/texmf-dist/web2c/updmap.cfg \
     && cd /usr/share/texlive/texmf-dist \
