@@ -35,7 +35,7 @@ RUN    echo "deb http://ppa.launchpad.net/marutter/rrutter/ubuntu trusty main" >
          jags \
     && R CMD javareconf \
     && echo 'options(repos = list(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' > /etc/R/Rprofile.site \
-    && R -e 'install.packages("rJava", "readxl", "dplyr", "tidyr", "lubridate", "purrr", "magrittr", "jagsUI")'
+    && R -e 'install.packages(c("rJava", "readxl", "dplyr", "tidyr", "lubridate", "purrr", "magrittr", "jagsUI"))'
 
 # Install inconsolata font
 RUN    curl -O http://mirrors.ibiblio.org/pub/mirrors/CTAN/install/fonts/inconsolata.tds.zip
