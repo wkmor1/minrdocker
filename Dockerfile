@@ -1,9 +1,6 @@
 FROM ubuntu:trusty
 MAINTAINER William K Morris <wkmor1@gmail.com>
 
-# Set env vars
-ENV R_LIBS_USER ~/.r-dir/R/library
-
 # Install Ubuntu packages
 RUN    apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -16,8 +13,6 @@ RUN    apt-get update \
          gfortran \
          libcairo2-dev \
          lmodern \
-         qpdf \
-         sudo \
          texinfo \
          texlive \
          texlive-humanities \
