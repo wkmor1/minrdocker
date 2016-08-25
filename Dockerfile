@@ -6,7 +6,7 @@ RUN    apt-get update \
          r-base-dev \
          jags \
          pandoc \
-    && echo 'options(repos = list(CRAN = "https://cran.rstudio.com/"))' > /etc/R/Rprofile.site \     
+    && echo 'options(repos = list(CRAN = "http://cloud.r-project.com/"))' > /etc/R/Rprofile.site \     
     && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readxl", "rmarkdown", "tidyr"))' \
     && apt-get clean \
     && apt-get autoremove \
