@@ -8,8 +8,12 @@ RUN    echo "deb http://cloud.r-project.org/bin/linux/debian jessie-cran3/" >> /
          r-base-dev \
          jags \
          pandoc \
-    && echo 'options(repos = list(CRAN = "http://cloud.r-project.org/"))' > /etc/R/Rprofile.site \     
-    && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readxl", "rmarkdown", "tidyr"))' \
+         texlive-base-latex \
+    && tlmgr update --self \
+    && tlmgr update --all \
+    && tlmgr update install tufte-latex \
+    && echo 'options(repos = list(CRAN = "http://cloud.r-project.org/"))' > /etc/R/Rprofile.site \ 
+    && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readxl", "tidyr", "tufte"))' \
     && apt-get clean \
     && apt-get autoremove \
     && rm -rf var/lib/apt/lists/*  /tmp/downloaded_packages/ /tmp/*.rds
