@@ -8,7 +8,7 @@ RUN    echo "deb http://cloud.r-project.org/bin/linux/debian jessie-cran3/" >> /
          r-base-dev \
          jags \
          pandoc \
-         texlive-base-latex \
+         texlive-latex-base \
     && tlmgr update --self \
     && tlmgr update --all \
     && tlmgr update install tufte-latex \
