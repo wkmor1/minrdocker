@@ -9,6 +9,8 @@ RUN    echo "deb http://cloud.r-project.org/bin/linux/debian jessie-cran3/" >> /
          jags \
          pandoc \
          texlive-latex-base \
+         wget \
+         xzdec \
     && tlmgr init-usertree \
     && tlmgr update --self \
     && tlmgr update --all \
