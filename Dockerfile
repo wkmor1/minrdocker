@@ -1,9 +1,7 @@
-FROM debian:stable
+FROM debian:testing
 MAINTAINER William K Morris <wkmor1@gmail.com>
 
-RUN    echo "deb http://cloud.r-project.org/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list \
-    && apt-key adv --keyserver keys.gnupg.net --recv-keys 381BA480 \
-    && apt-get update \
+RUN    apt-get update \
     && apt-get install -y --no-install-recommends \
          r-base-dev \
          jags \
