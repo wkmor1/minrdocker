@@ -19,7 +19,6 @@ RUN    echo 'options(repos = list(CRAN = "http://cloud.r-project.org/"))' > /etc
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 RUN    tlmgr init-usertree \
-    && tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final \
     && tlmgr update --self --all \
     && tlmgr install \
          changepage \
