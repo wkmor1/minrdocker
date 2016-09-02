@@ -15,7 +15,7 @@ RUN    apt-get update \
     && rm -rf var/lib/apt/lists/*
 
 RUN    echo 'options(repos = list(CRAN = "http://cloud.r-project.org/"))' > /etc/R/Rprofile.site \
-    && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readxl", "tidyr", "tufte"))' \
+    && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readr", "readxl", "tidyr", "tufte"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 RUN    tlmgr init-usertree \
