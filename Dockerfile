@@ -8,15 +8,33 @@ RUN    echo "deb http://cloud.r-project.org/bin/linux/debian jessie-cran3/" >> /
          r-base-dev \
          jags \
          pandoc \
-         texlive-latex-base \
+         texlive-fonts-recommended \
+         texlive-latex-recommended \
          wget \
          xzdec \
-    && tlmgr init-usertree \
-    && tlmgr update --self \
-    && tlmgr update --all \
-    && tlmgr update install tufte-latex \
-    && echo 'options(repos = list(CRAN = "http://cloud.r-project.org/"))' > /etc/R/Rprofile.site \ 
-    && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readxl", "tidyr", "tufte"))' \
     && apt-get clean \
     && apt-get autoremove \
-    && rm -rf var/lib/apt/lists/*  /tmp/downloaded_packages/ /tmp/*.rds
+    && rm -rf var/lib/apt/lists/*
+
+RUN    echo 'options(repos = list(CRAN = "http://cloud.r-project.org/"))' > /etc/R/Rprofile.site \
+    && R -e 'install.packages(c("jagsUI", "lubridate", "purrr", "readxl", "tidyr", "tufte"))' \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
+RUN    tlmgr init-usertree \
+    && tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final \
+    && tlmgr update --self --all \
+    && tlmgr install \
+         changepage \
+         framed \
+         hardwrap \
+         ifetex \
+         ifmtarg \
+         morefloats \
+         paralist \
+         placeins \
+         sauerj \
+         titlesec \
+         tufte-latex \
+         ulem \
+         units \
+         xifthen
