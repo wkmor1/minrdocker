@@ -6,6 +6,7 @@ RUN    apt-get update \
          r-base-dev \
          jags \
          pandoc \
+         libcurl4-openssl-dev \
          texlive-fonts-recommended \
          texlive-latex-recommended \
          wget \
